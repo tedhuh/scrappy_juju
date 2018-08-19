@@ -4,12 +4,9 @@ const mongoose = require('mongoose');
 const xpshbs = require('express-handlebars');
 const morgan = require('morgan');
 
-// ! Used for scrapping
-const axios = require('axios');
-const cheerio = require('cheerio');
-
 // ! REQUIRE ROUTES HERE =========================
 const testRoute = require('./routes/scrape.routes');
+const home = require('./routes/home.route');
 // ! REQUIRE ROUTES HERE =========================
 
 const app = express();
@@ -17,6 +14,8 @@ const PORT = process.env.PORT || 3000;
 
 // ! middleware start ============================
 
+// ! serves static files
+app.use(express.static('public'));
 // ! morgan logs status request
 app.use(morgan('dev'));
 // ! body-parser for parsing incoming data
@@ -37,9 +36,7 @@ app.set('view engine', 'handlebars');
 mongoose.connect('mongodb://localhost/scrappy');
 
 // ! ROUTES START HERE =======================
-app.get('/', (req, res) => {
-  res.json('test');
-});
+app.use(home);
 
 app.use(testRoute);
 // ! ROUTES END HERE ==========================
