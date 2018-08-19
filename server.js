@@ -19,20 +19,20 @@ app.use(express.static('public'));
 // ! morgan logs status request
 app.use(morgan('dev'));
 // ! body-parser for parsing incoming data
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extended: true}));
 // ! handlebars
 // Handlebars
 app.engine(
   'handlebars',
   xpshbs({
-    defaultLayout: 'index'
+    defaultLayout: 'index',
   })
 );
 app.set('view engine', 'handlebars');
 
 // ! middleware end ============================
 
-// ! mongodb connection using moogose
+// ! mongodb connection using mongoose
 mongoose.connect('mongodb://localhost/scrappy');
 
 // ! ROUTES START HERE =======================

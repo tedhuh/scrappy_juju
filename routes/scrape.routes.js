@@ -1,20 +1,16 @@
 const express = require('express');
-const router = express.Router();
 const cheerio = require('cheerio');
 const request = require('request');
+const router = express.Router();
+const articles = require('../models/Article');
 
 router.get('/scrape', (req, res) => {
-  request('http://www.nytimes.com', function(error, response, html) {
-    // Load the HTML into cheerio and save it to a variable
-    // '$' becomes a shorthand for cheerio's selector commands, much like jQuery's '$'
+  request('http://www.nytimes.com', function test(error, response, html) {
     const $ = cheerio.load(html);
 
     // An empty array to save the data that we'll scrape
     const results = [];
 
-    // Select each element in the HTML body from which you want information.
-    // NOTE: Cheerio selectors function similarly to jQuery's selectors,
-    // but be sure to visit the package's npm page to see how it works
     $('h2.story-heading, p.summary').each(function(i, element) {
       const link = $(element)
         .children()
@@ -22,21 +18,24 @@ router.get('/scrape', (req, res) => {
       const title = $(element)
         .children()
         .text();
-
       const summary = $(element)
         .children()
         .text();
 
-      // Save these results in an object that we'll push into the results array we defined earlier
-      results.push({
+      const data = {
         title: title,
         link: link,
-        summary: summary
-      });
-    });
+        summary: summary,
+      };
 
-    // Log the results once you've looped through each of the elements found with cheerio
-    res.json(results);
+      articles
+        .create(data)
+        .then((resp) => results.push(resp))
+        // .then((resp) => Promise.resolve(results)) //
+        // .then((jsonDta ) => res.json(jsonData)) // error you can only give response once.
+        .catch((err) => reject(err));
+    });
+    console.log(results);
   });
 });
 
