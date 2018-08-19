@@ -35,10 +35,8 @@ router.get('/scrape', (req, res) => {
       });
     });
 
-    res.render('articles', { articles: results });
-
     // Log the results once you've looped through each of the elements found with cheerio
-    console.log(results);
+    res.json(results);
   });
 });
 
