@@ -10,8 +10,7 @@ router.get('/scrape', (req, res) => {
 
     // An empty array to save the data that we'll scrape
     const results = [];
-
-    $('h2.story-heading, p.summary').each(function(i, element) {
+    $('h2.story-heading').each(function(i, element) {
       const link = $(element)
         .children()
         .attr('href');
@@ -19,7 +18,7 @@ router.get('/scrape', (req, res) => {
         .children()
         .text();
       const summary = $(element)
-        .children()
+        .nextAll('p.summary')
         .text();
 
       const data = {

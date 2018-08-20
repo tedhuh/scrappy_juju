@@ -48,17 +48,17 @@
 
   /**
    * this funciton save data from the DB
-   * @param {Object} elem
+   * @param {HTMLCollection} elem
    */
   function saveArticleInDb(elem) {
-    const articleTitle = elem.querySelector('#article-title').innerText;
-    const articleLink = elem.querySelector('a').getAttribute('href');
-    const articleSummary = elem.querySelector('#article-summary').innerText;
+    const title = elem.querySelector('#article-title').innerText;
+    const link = elem.querySelector('a').getAttribute('href');
+    const summary = elem.querySelector('#article-summary').innerText;
     const url = '/save/article';
     const data = {
-      articleTitle,
-      articleLink,
-      articleSummary,
+      title,
+      link,
+      summary,
     };
     console.log(data);
     fetch(url, {
@@ -66,8 +66,6 @@
       body: JSON.stringify(data),
       headers: {
         'Content-Type': 'application/json',
-        //   'Content-Type': 'application/json; charset=utf-8',
-        //   "Content-Type": "application/x-www-form-urlencoded",
       },
     })
       .then((data) => data.json())

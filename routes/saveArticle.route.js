@@ -3,9 +3,13 @@ const articles = require('../models/Article');
 const router = express.Router();
 
 router.post('/save/article', (req, res) => {
-  console.log(req.body, 'the body');
+  const nyArticles = req.body;
+  console.log(nyArticles);
 
-  res.json(req.body);
+  articles.create(nyArticles, (err, status) => {
+    if (err) console.error(err);
+    res.json(status);
+  });
 });
 
 module.exports = router;
