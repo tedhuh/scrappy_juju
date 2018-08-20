@@ -1,0 +1,26 @@
+<h1>SAVED ARTICLES</h1>
+
+<div class="big-container">
+    {{#each savedArticles}}
+    <div class="article-container" data-articleId="{{this._id}}" id="{{this._id}}">
+        <h3>{{this.title}}</h3>
+        <h4><a href="{{this.link}}">link</a></h4>
+        <p>{{this.summary}}</p>
+        <button id="add-note-btn">ADD NOTE</button>
+        <button id="delete-article-btn">DELETE ARTICLE</button>
+    </div>
+    {{/each}}
+</div>
+
+<aside>
+    <div>
+        {{#savedArticles}} {{!-- <input type="text" name="title" id="" value="{{this.note.title}}"> --}}
+        <h3>{{this.note.title}}</h3>
+        <p>{{this.note.body}}</p>
+        {{/savedArticles}}
+    </div>
+</aside>
+
+
+
+<script src="/js/saved.articles.js" type="text/javascript"></script>
