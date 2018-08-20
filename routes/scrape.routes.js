@@ -29,12 +29,6 @@ router.get('/scrape', (req, res) => {
       };
 
       results.push(data);
-      // articles
-      //   .create(data)
-      //   .then((resp) => results.push(resp))
-      //   // .then((resp) => Promise.resolve(results)) //
-      //   // .then((jsonDta ) => res.json(jsonData)) // error you can only give response once.
-      //   .catch((err) => reject(err));
     });
     res.json(results);
   });

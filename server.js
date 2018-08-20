@@ -15,12 +15,13 @@ const PORT = process.env.PORT || 3000;
 
 // ! middleware start ============================
 
+// ! body-parser for parsing incoming data
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 // ! serves static files
 app.use(express.static('public'));
 // ! morgan logs status request
 app.use(morgan('dev'));
-// ! body-parser for parsing incoming data
-app.use(bodyParser.urlencoded({extended: true}));
 // ! handlebars
 // Handlebars
 app.engine(
