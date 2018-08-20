@@ -1,6 +1,11 @@
 'use strict';
 
 (function() {
+  const goToSavedArticleBtn = document.getElementById('saved-articles');
+  goToSavedArticleBtn.addEventListener('click', function() {
+    window.location.assign('/get/articles');
+  });
+
   const scrapeBtn = document.getElementById('scrape-btn');
   const url = '/scrape';
   scrapeBtn.addEventListener('click', () => {
@@ -48,7 +53,7 @@
 
   /**
    * this funciton save data from the DB
-   * @param {HTMLCollection} elem
+   * @param {HTMLCollection} elem takes HTML element
    */
   function saveArticleInDb(elem) {
     const title = elem.querySelector('#article-title').innerText;

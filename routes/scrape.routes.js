@@ -5,7 +5,7 @@ const router = express.Router();
 // const articles = require('../models/Article');
 
 router.get('/scrape', (req, res) => {
-  request('http://www.nytimes.com', function test(error, response, html) {
+  request('http://www.nytimes.com', function(error, response, html) {
     const $ = cheerio.load(html);
 
     // An empty array to save the data that we'll scrape
