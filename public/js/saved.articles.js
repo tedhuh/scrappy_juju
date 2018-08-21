@@ -5,6 +5,11 @@
   const deleteArticleBtn = document.querySelectorAll('#delete-article-btn');
   const submitNotesBtn = document.querySelector('#submit-notes-btn');
   const idHolder = document.getElementById('article-id-holder');
+  const homeBtn = document.getElementById('home-btn');
+
+  homeBtn.addEventListener('click', function() {
+    window.location.assign('/');
+  });
 
   submitNotesBtn.addEventListener('click', function() {
     const id = idHolder.innerText;

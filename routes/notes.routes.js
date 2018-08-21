@@ -13,11 +13,13 @@ router.post('/save/notes/:id', (req, res) => {
     body,
   };
 
+  console.log(notesData);
+
   notes
     .create(notesData)
     .then((dataResponse) => {
-      console.log(dataResponse);
       return articles.findOneAndUpdate(
+        //   return articles.create(
         {_id: articleId},
         {note: dataResponse._id}
       );

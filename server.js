@@ -28,7 +28,10 @@ app.use(morgan('dev'));
 app.engine(
   'handlebars',
   xpshbs({
+    extname: 'handlebars',
     defaultLayout: 'index',
+    layoutsDir: __dirname + '/views/layouts/',
+    partialsDir: __dirname + '/views/partials/',
   })
 );
 app.set('view engine', 'handlebars');
