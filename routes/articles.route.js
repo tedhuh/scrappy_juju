@@ -17,6 +17,7 @@ router.get('/get/articles', (req, res) => {
     // })
     .then((savedArticles) => {
       // res.json(savedArticles);
+      // console.log(savedArticles);
       res.render('articles', {savedArticles});
     })
     .catch((err) => console.error(err));

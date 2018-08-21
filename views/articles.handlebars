@@ -9,17 +9,34 @@
         <button id="add-note-btn">ADD NOTE</button>
         <button id="delete-article-btn">DELETE ARTICLE</button>
     </div>
+    <aside class="notes-container" style="border:solid">
+        <div>
+            {{!-- {{#savedArticles}} --}}
+            <h3>{{this.note.title}}</h3>
+            <p>{{this.note.body}}</p>
+            {{!-- {{/savedArticles}} --}}
+            <button id="delete-note-btn">X</button>
+        </div>
+    </aside>
     {{/each}}
 </div>
 
-<aside>
+{{!--
+<aside class="notes-container" style="border:solid">
     <div>
-        {{#savedArticles}} {{!-- <input type="text" name="title" id="" value="{{this.note.title}}"> --}}
+        {{#savedArticles}}
         <h3>{{this.note.title}}</h3>
         <p>{{this.note.body}}</p>
         {{/savedArticles}}
     </div>
-</aside>
+</aside> --}}
+
+<div>
+    <div id="article-id-holder"></div>
+    <input type="text" name="title" id="title-note">
+    <textarea name="body" id="body-note" cols="30" rows="10"></textarea>
+    <button id="submit-notes-btn">SAVE NOTES</button>
+</div>
 
 
 
