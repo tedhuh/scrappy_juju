@@ -1,29 +1,38 @@
-<h1>SAVED ARTICLES</h1>
+<div class="add-notes-container">
+    <div id="article-id-holder"></div>
+    <input type="text" name="title" id="title-note" class="input" placeholder="TITLE">
+    <textarea name="body" id="body-note" class="input" placeholder="NOTES"></textarea>
+    <button id="submit-notes-btn" class="btn">SAVE NOTES</button>
+</div>
 
-<header>
-    <h1>YOU SAVED ARTICLE</h1>
-    <button id="home-btn">HOME</button>
-</header>
+<div class="saved-articles-container">
+    <header class="head-continaer">
+        <h1>SAVED ARTICLES</h1>
+        <button id="home-btn" class="btn">HOME</button>
+    </header>
 
-<div class="big-container">
-    {{#each savedArticles}}
-    <div class="article-container" data-articleId="{{this._id}}" id="{{this._id}}">
-        <h3>{{this.title}}</h3>
-        <h4><a href="{{this.link}}">link</a></h4>
-        <p>{{this.summary}}</p>
-        <button id="add-note-btn">ADD NOTE</button>
-        <button id="delete-article-btn">DELETE ARTICLE</button>
-    </div>
-    <aside class="notes-container" style="border:solid">
-        <div>
-            {{!-- {{#savedArticles}} --}}
-            <h3>{{this.note.title}}</h3>
-            <p>{{this.note.body}}</p>
-            {{!-- {{/savedArticles}} --}}
-            <button id="delete-note-btn">X</button>
+    <div class="big-container">
+        {{#each savedArticles}}
+        <div class="aside-article-wrapper">
+            <div class="article-container" data-articleId="{{this._id}}" id="{{this._id}}">
+                <h3>{{this.title}}</h3>
+                <h4><a href="{{this.link}}">link</a></h4>
+                <p>{{this.summary}}</p>
+                <button id="add-note-btn">ADD NOTE</button>
+                <button id="delete-article-btn">DELETE ARTICLE</button>
+            </div>
+            <aside class="notes-container">
+                <div>
+                    {{!-- {{#savedArticles}} --}}
+                    <h3>{{this.note.title}}</h3>
+                    <p>{{this.note.body}}</p>
+                    {{!-- {{/savedArticles}} --}}
+                    <button id="delete-note-btn">X</button>
+                </div>
+            </aside>
         </div>
-    </aside>
-    {{/each}}
+        {{/each}}
+    </div>
 </div>
 
 {{!--
@@ -36,12 +45,6 @@
     </div>
 </aside> --}}
 
-<div>
-    <div id="article-id-holder"></div>
-    <input type="text" name="title" id="title-note">
-    <textarea name="body" id="body-note" cols="30" rows="10"></textarea>
-    <button id="submit-notes-btn">SAVE NOTES</button>
-</div>
 
 
 

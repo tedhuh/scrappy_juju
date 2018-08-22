@@ -7,26 +7,26 @@ const router = express.Router();
 router.get('/scrape', (req, res) => {
   request('http://www.nytimes.com', function(error, response, html) {
     const $ = cheerio.load(html);
-
     // An empty array to save the data that we'll scrape
     const results = [];
-    $('h2.story-heading').each(function(i, element) {
+
+    $('div.css-6p6lnl').each(function(element) {
       const link = $(element)
         .children()
         .attr('href');
       const title = $(element)
-        .children()
+        .children('balancedHeadline')
         .text();
       const summary = $(element)
-        .nextAll('p.summary')
+        .children('p.css-dz277d')
+        // .nextAll('p.summary')
         .text();
-
+      console.log(link);
       const data = {
         title: title,
         link: link,
         summary: summary,
       };
-
       results.push(data);
     });
     res.json(results);

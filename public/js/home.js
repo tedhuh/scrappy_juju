@@ -30,7 +30,7 @@
       articleContainer.innerHTML += `
       <div class="article-wrapper"> 
         <h3 id="article-title" class="title">${article.title}</h3>
-          <h4>
+          <h4 class="link link-container">
             <a href="${article.link}" id="article-title" target="_blank">
                 LINK
             </a>

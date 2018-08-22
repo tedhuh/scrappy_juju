@@ -15,6 +15,7 @@
   align-items: center;
   flex-direction: column;
 }
+
 .heading-text {
   border: solid;
   width: max-content;
@@ -26,6 +27,8 @@
   margin-top: 10%;
   border: solid;
   background: none;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 #article-container {
@@ -46,29 +49,61 @@
   font-size: 1rem;
   box-sizing: border-box;
   border: 2px solid black;
+  box-shadow: 0px 0px 12px 2px rgba(139, 139, 139, 0.726);
 }
+
 .title {
   font-weight: normal;
   font-size: 1.5rem;
 }
+
 .summary {
   letter-spacing: 1px;
   line-height: 20px;
 }
 
+.link {
+  margin: 10px 0px 0px 0px;
+}
+
+.link a {
+  text-decoration: none;
+}
+
 .save-btn {
-  border: 1px solid grey;
+  border: 2px solid grey;
   background: transparent;
+  margin: 10px 0px;
+  height: 50px;
+  font-size: 20px;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 1200px) {
   .container {
     width: 100%;
   }
+
+  .header-container {
+    height: 100vh;
+  }
+
+  .heading-text {
+    font-size: 4rem;
+  }
+
+  .btn {
+    height: 40px;
+    width: 170px;
+    font-size: 1rem;
+    font-weight: bolder;
+  }
+
   #article-container {
     padding: 1%;
     width: 60%;
   }
+
   .article-wrapper {
     margin: 1% 0;
     width: 100%;
