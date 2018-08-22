@@ -1,0 +1,76 @@
+.container {
+  min-width: 320px;
+  height: 100vh;
+}
+
+.header-container {
+  background-image: url('../images/newspaper.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 40%;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.heading-text {
+  border: solid;
+  width: max-content;
+  font-size: 2rem;
+  padding: 5px;
+}
+
+.btn {
+  margin-top: 10%;
+  border: solid;
+  background: none;
+}
+
+#article-container {
+  padding: 5%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.article-wrapper {
+  margin: 2.5% 0;
+  padding: 2.5%;
+  text-align: center;
+  font-size: 1rem;
+  box-sizing: border-box;
+  border: 2px solid black;
+}
+.title {
+  font-weight: normal;
+  font-size: 1.5rem;
+}
+.summary {
+  letter-spacing: 1px;
+  line-height: 20px;
+}
+
+.save-btn {
+  border: 1px solid grey;
+  background: transparent;
+}
+
+@media screen and (min-width: 1200px) {
+  .container {
+    width: 100%;
+  }
+  #article-container {
+    padding: 1%;
+    width: 60%;
+  }
+  .article-wrapper {
+    margin: 1% 0;
+    width: 100%;
+  }
+}

@@ -28,11 +28,15 @@
     const articleContainer = document.getElementById('article-container');
     res.forEach((article) => {
       articleContainer.innerHTML += `
-      <div> 
-      <h3 id="article-title">${article.title}</h3>
-      <h4><a href="${article.link}" id="article-title">link</a></h4>
-      <p id="article-summary">${article.summary}</p>
-      <button id="save-article-btn">SAVE ARTICLE</button>
+      <div class="article-wrapper"> 
+        <h3 id="article-title" class="title">${article.title}</h3>
+          <h4>
+            <a href="${article.link}" id="article-title" target="_blank">
+                LINK
+            </a>
+          </h4>
+        <p id="article-summary" class="summary">${article.summary}</p>
+        <button id="save-article-btn" class="save-btn">SAVE ARTICLE</button>
       </div>`;
     });
   }

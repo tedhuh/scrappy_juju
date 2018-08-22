@@ -21,6 +21,7 @@ router.post('/save/notes/:id', (req, res) => {
       return articles.findOneAndUpdate(
         //   return articles.create(
         {_id: articleId},
+        // {$addToSet: {note: dataResponse._id}}
         {note: dataResponse._id}
       );
     })
