@@ -41,15 +41,14 @@ app.set('view engine', 'handlebars');
 // ! mongodb connection using mongoose
 // mongoose.connect('mongodb://localhost/scrappy');
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/scrappy';
-
-// Set mongoose to leverage built in JavaScript ES6 Promises
-// Connect to the Mongo DB
+// // Set mongoose to leverage built in JavaScript ES6 Promises
+// // Connect to the Mongo DB
 module.exports = mongoose.Promise = Promise;
 mongoose.connect(
-  MONGODB_URI,
-  {
-    useMongoClient: true,
-  }
+  MONGODB_URI
+  // {
+  //   useMongoClient: true,
+  // }
 );
 
 // ! ROUTES START HERE =======================
