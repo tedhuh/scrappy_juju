@@ -7,18 +7,40 @@
   const idHolder = document.getElementById('article-id-holder');
   const homeBtn = document.getElementById('home-btn');
   const showHideNotes = document.querySelector('.add-notes-container');
+  const hideShowNoteBtn = document.querySelectorAll('#hide-show-note-btn');
+  const addNotesContainer = document.querySelector('.add-notes-container');
+  const hideShowArticleBtn = document.querySelectorAll(
+    '#hide-show-article-btn'
+  );
+
+  hideShowNoteBtn.forEach((noteBtn) => {
+    noteBtn.addEventListener('click', function() {
+      const theParents = this.parentNode;
+      theParents.style.width = '0';
+      theParents.previousElementSibling.style.width = '100%';
+    });
+  });
+
+  hideShowArticleBtn.forEach((articleBtn) => {
+    articleBtn.addEventListener('click', function() {
+      const theParents = this.parentNode.parentNode;
+      theParents.style.width = '0%';
+      theParents.parentNode.childNodes[3].style.width = '100%';
+    });
+  });
 
   homeBtn.addEventListener('click', function() {
     window.location.assign('/');
   });
 
   /**
-   *
+   * this function hides the container of its click outside the form;
    */
   function hideIfNoteIsShowing() {
     window.addEventListener('click', function(e) {
       const isContainerClicked = e.target === showHideNotes;
       if (isContainerClicked) {
+        addNotesContainer.style.position = 'absolute';
         showHideNotes.classList.remove('show-hide-notes-container');
       }
     });
@@ -30,6 +52,7 @@
     console.log(id);
     submitNotes(id);
     showHideNotes.classList.remove('show-hide-notes-container');
+    window.location.reload();
   });
   /**
    * this function submit and save
@@ -59,6 +82,7 @@
 
   addNotesBtn.forEach((noteBtn) => {
     noteBtn.addEventListener('click', function() {
+      addNotesContainer.style.position = 'fixed';
       // TODO: create a modal to show and add notes
 
       // showNotesModal(this.parentNode);
@@ -73,41 +97,10 @@
 
   deleteArticleBtn.forEach((deleteBtn) => {
     deleteBtn.addEventListener('click', function() {
-      deleteArticle(this.parentNode);
+      deleteArticle(this.parentNode.parentNode);
       console.log('DELETE ARTICLE');
     });
   });
-
-  /**
-   * this function saves your notes
-   * @param {Object} id
-   */
-  function showNotesModal(id) {
-    // // const id = articleId.dataset.articleid;
-    // // ! TESTING ==========
-    // const idHolder = document.getElementById('article-id-holder');
-    // const title = document.getElementById('title-note').value;
-    // const body = document.getElementById('body-note').value;
-    // idHolder.innerText = id;
-    // // ! TESTING ==========
-    // const url = `/save/notes/${id}`;
-    // const data = {
-    //   title,
-    //   body,
-    // };
-    // fetch(url, {
-    //   method: 'POST',
-    //   body: JSON.stringify(data),
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    // })
-    //   .then((respond) => respond.json())
-    //   .then((result) => console.log(result))
-    //   .catch((err) => {
-    //     console.error(err);
-    //   });
-  }
 
   /**
    * this function deletes a article
@@ -124,7 +117,7 @@
       .then((respond) => respond.json())
       .then((result) => {
         console.log(result);
-        // window.location.reload();
+        window.location.reload();
       })
       .catch((err) => {
         console.error(err);

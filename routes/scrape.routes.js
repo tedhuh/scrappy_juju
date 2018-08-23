@@ -10,18 +10,27 @@ router.get('/scrape', (req, res) => {
     // An empty array to save the data that we'll scrape
     const results = [];
 
-    $('div.css-6p6lnl').each(function(element) {
+    $('div[class=css-6p6lnl]').each(function(i, element) {
       const link = $(element)
         .children()
         .attr('href');
+
       const title = $(element)
-        .children('balancedHeadline')
+        .children('a')
+        .children('div')
+        .children('h2')
+        // .children('span')
         .text();
+
       const summary = $(element)
-        .children('p.css-dz277d')
-        // .nextAll('p.summary')
+        // .children('a')
+        // .children('ul')
+        // .children('li')
+        .children('a')
+        .children('div')
+        .nextAll('p.css-dz277d')
         .text();
-      console.log(link);
+
       const data = {
         title: title,
         link: link,

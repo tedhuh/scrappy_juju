@@ -18,17 +18,20 @@
                 <h3>{{this.title}}</h3>
                 <h4><a href="{{this.link}}">link</a></h4>
                 <p>{{this.summary}}</p>
-                <button id="add-note-btn">ADD NOTE</button>
-                <button id="delete-article-btn">DELETE ARTICLE</button>
+                <button id="add-note-btn" class="btn">ADD NOTE</button>
+                <footer class="footer_btn-container" id='footer-container'>
+                    <button id="delete-article-btn" class="btn">DELETE ARTICLE</button>
+                    <button class="btn" id="hide-show-article-btn">NOTES</button>
+                </footer>
             </div>
             <aside class="notes-container">
-                <div>
+                <div class="body-title-container">
                     {{!-- {{#savedArticles}} --}}
                     <h3>{{this.note.title}}</h3>
                     <p>{{this.note.body}}</p>
                     {{!-- {{/savedArticles}} --}}
-                    <button id="delete-note-btn">X</button>
                 </div>
+                <button id="hide-show-note-btn" class="btn">X</button>
             </aside>
         </div>
         {{/each}}
