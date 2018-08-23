@@ -7,8 +7,8 @@
 
 <div class="saved-articles-container">
     <header class="head-continaer">
-        <h1>SAVED ARTICLES</h1>
-        <button id="home-btn" class="btn">HOME</button>
+        <h1>ARTICLES</h1>
+        <button id="home-btn" class="btn article-btn">HOME</button>
     </header>
 
     <div class="big-container">
@@ -18,37 +18,24 @@
                 <h3>{{this.title}}</h3>
                 <h4><a href="{{this.link}}">link</a></h4>
                 <p>{{this.summary}}</p>
-                <button id="add-note-btn" class="btn">ADD NOTE</button>
+                <button id="delete-article-btn" class="btn article-btn">DELETE ARTICLE</button>
                 <footer class="footer_btn-container" id='footer-container'>
-                    <button id="delete-article-btn" class="btn">DELETE ARTICLE</button>
-                    <button class="btn" id="hide-show-article-btn">NOTES</button>
+                    <button class="btn article-btn" id="add-note-btn">ADD NOTE</button>
+                    <button class="btn article-btn" id="hide-show-article-btn">NOTES</button>
                 </footer>
             </div>
             <aside class="notes-container">
                 <div class="body-title-container">
                     {{!-- {{#savedArticles}} --}}
-                    <h3>{{this.note.title}}</h3>
-                    <p>{{this.note.body}}</p>
+                    <h3 aria-placeholder="TITLE">{{this.note.title}}</h3>
+                    <p aria-placeholder="NOTE">{{this.note.body}}</p>
                     {{!-- {{/savedArticles}} --}}
                 </div>
-                <button id="hide-show-note-btn" class="btn">X</button>
+                <button id="hide-show-note-btn" class="btn article-btn">X</button>
             </aside>
         </div>
         {{/each}}
     </div>
 </div>
-
-{{!--
-<aside class="notes-container" style="border:solid">
-    <div>
-        {{#savedArticles}}
-        <h3>{{this.note.title}}</h3>
-        <p>{{this.note.body}}</p>
-        {{/savedArticles}}
-    </div>
-</aside> --}}
-
-
-
 
 <script src="/js/saved.articles.js" type="text/javascript"></script>

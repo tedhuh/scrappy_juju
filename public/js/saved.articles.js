@@ -49,7 +49,6 @@
 
   submitNotesBtn.addEventListener('click', function() {
     const id = idHolder.innerText;
-    console.log(id);
     submitNotes(id);
     showHideNotes.classList.remove('show-hide-notes-container');
     window.location.reload();
@@ -84,20 +83,15 @@
     noteBtn.addEventListener('click', function() {
       addNotesContainer.style.position = 'fixed';
       // TODO: create a modal to show and add notes
-
-      // showNotesModal(this.parentNode);
-      // .setAttribute('id', )
-      const id = this.parentNode.dataset.articleid;
+      const id = this.parentNode.parentNode.dataset.articleid;
       idHolder.innerText = id;
-      // submitNotes(this);
-      // console.log(this.parentNode);
       showHideNotes.classList.toggle('show-hide-notes-container');
     });
   });
 
   deleteArticleBtn.forEach((deleteBtn) => {
     deleteBtn.addEventListener('click', function() {
-      deleteArticle(this.parentNode.parentNode);
+      deleteArticle(this.parentNode);
       console.log('DELETE ARTICLE');
     });
   });
@@ -108,8 +102,8 @@
    */
   function deleteArticle(article) {
     const id = article.dataset.articleid;
-    const elemContainer = document.getElementById(`${id}`);
-    article.parentNode.removeChild(elemContainer);
+    const elemContainer = document.getElementById(`${id}`).parentNode;
+    article.parentNode.parentNode.removeChild(elemContainer);
     const url = `/delete/article/${id}`;
     fetch(url, {
       method: 'DELETE',
