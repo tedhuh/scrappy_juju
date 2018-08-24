@@ -5,10 +5,10 @@ const xpshbs = require('express-handlebars');
 const morgan = require('morgan');
 
 // ! REQUIRE ROUTES HERE =========================
-const articles = require('./routes/articles.route');
+const articles = require('./routes/articles.routes');
 const scrape = require('./routes/scrape.routes');
 const notes = require('./routes/notes.routes');
-const home = require('./routes/home.route');
+const home = require('./routes/home.routes');
 // ! REQUIRE ROUTES HERE =========================
 
 const app = express();

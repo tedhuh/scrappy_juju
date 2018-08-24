@@ -17,6 +17,6 @@ In this project, I'll create a web app that lets users view and leave notes on t
 
 **HERE'S SAMPLE VIDEO**
 
-![sample_video](./public/video/scrap.webm)
+![sample_video](./public/gif/scrapgif.gif)
 
 [Live_Site](https://scrappykoko.herokuapp.com/)
