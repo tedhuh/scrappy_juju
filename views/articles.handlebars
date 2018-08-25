@@ -20,15 +20,15 @@
                 <p>{{this.summary}}</p>
                 <button id="delete-article-btn" class="btn article-btn">DELETE ARTICLE</button>
                 <footer class="footer_btn-container" id='footer-container'>
-                    <button class="btn article-btn" id="add-note-btn">ADD NOTE</button>
-                    <button class="btn article-btn" id="hide-show-article-btn">NOTES</button>
+                    <button id="add-note-btn" class="btn article-btn">ADD NOTE</button>
+                    <button id="hide-show-article-btn" class="btn article-btn">NOTES</button>
                 </footer>
             </div>
             <aside class="notes-container">
                 <div class="body-title-container">
                     {{!-- {{#savedArticles}} --}}
-                    <h3 aria-placeholder="TITLE">{{this.note.title}}</h3>
-                    <p aria-placeholder="NOTE">{{this.note.body}}</p>
+                    <h3>{{this.note.title}}</h3>
+                    <p>{{this.note.body}}</p>
                     {{!-- {{/savedArticles}} --}}
                 </div>
                 <button id="hide-show-note-btn" class="btn article-btn">X</button>
