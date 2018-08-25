@@ -19,4 +19,6 @@ In this project, I'll create a web app that lets users view and leave notes on t
 
 ![sample_video](./public/gif/scrapgif.gif)
 
-[Live_Site](https://scrappykoko.herokuapp.com/)
+**SCRAPPY KOKO LIVE SITE**
+
+https://scrappykoko.herokuapp.com/
