@@ -37,7 +37,9 @@
 
 #title-note {
   margin-top: 10px;
-  height: 20px;
+  height: 30px;
+  font-size: 1.5rem;
+  text-indent: 5px;
 }
 
 #body-note {
@@ -45,6 +47,8 @@
   height: 200px;
   width: 285px;
   resize: none;
+  font-size: 1.5rem;
+  text-indent: 5px;
 }
 
 #submit-notes-btn {
